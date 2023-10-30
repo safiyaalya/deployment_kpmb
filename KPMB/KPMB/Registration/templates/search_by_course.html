@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolej Profesional MARA Beranang</title>
+    <style>
+        table,td,th{border: solid;}
+
+    </style>
+</head>
+<body>
+    <h1>KOLEJ PROFESIONAL MARA BERANANG</h1>
+    <h1>SEARCH BY COURSE</h1>
+    <form action="search_by_course" method = 'get'>
+        Course
+        <select name="s_course" >
+            <option value="">Select One</option>
+            {% for data in c_code %}
+                <option value={{data.code}}>{{data.description}} </option>   
+            {% endfor %}     
+            <input type="submit" value="SEARCH">   
+        </select>
+    </form>
+    <br><br>
+
+    <table>            
+        <tr>
+            <caption> List of student {{course}}</caption> 
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Status</th>
+        </tr>
+        {% for data in stud_list %}
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+              
+</body>
+</html>
